@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calcolatrice Semplice</title>
+    <style>
+        input { width: 200px; margin-bottom: 10px; padding: 5px; }
+        button { font-size: 18px; width: 40px; height: 40px; margin-right: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="input1"><br>
+    <input type="text" id="input2"><br><br>
+
+    <button onclick="calcola('+')">+</button>
+    <button onclick="calcola('-')">-</button>
+    <button onclick="calcola('*')">x</button>
+    <button onclick="calcola('/')">/</button>
+    <br><br>
+
+    <h2>RISULTATO: <span id="risultato">0</span></h2>
+
+    <script>
+    function calcola(segno) {
+        let n1 = parseFloat(document.getElementById("input1").value);
+        let n2 = parseFloat(document.getElementById("input2").value);
+
+        let res = 0;
+
+        if (segno == "+") {
+            res = n1 + n2;
+        }
+        if (segno == "-") {
+            res = n1 - n2;
+        }
+        if (segno == "*") {
+            res = n1 * n2;
+        }
+        if (segno == "/") {
+            res = n1 / n2;
+            
+            if (isNaN(res)) {
+                res = "Infinity";
+            }
+        }
+        document.getElementById("risultato").innerText = res;
+    }
+    </script>
+</body>
+</html>
