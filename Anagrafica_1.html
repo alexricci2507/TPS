@@ -1,0 +1,128 @@
+<html><head>
+        <title>Anagrafica 1.0</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #f7f5fa; 
+                color: #333;
+                margin: 0;
+                padding: 40px 20px;
+                text-align: center;
+            }
+            h1 {
+                color: #4a2e80;
+                margin-bottom: 30px;
+            }
+            input[type="text"], input[type="number"] {
+                padding: 10px 15px;
+                border: 1px solid #c8bed6;
+                border-radius: 4px;
+                font-size: 14px;
+                outline: none;
+                margin: 0 5px 20px 5px;
+                transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            }
+            input[type="text"]:focus, input[type="number"]:focus {
+                border-color: #8e44ad;
+                box-shadow: 0 0 5px rgba(142, 68, 173, 0.3);
+            }
+            #nomeTab, #cognomeTab { width: 150px; }
+            #indirizzoTab { width: 200px; }
+            #cittàTab { width: 120px; }
+            #etàTab { width: 110px; }
+
+            button {
+                background-color: #9b59b6;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                font-size: 14px;
+                font-weight: bold;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-left: 5px;
+                transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+                box-shadow: 0 2px 5px rgba(155, 89, 182, 0.4);
+            }
+            button:hover {
+                background-color: #8e44ad;
+                box-shadow: 0 4px 10px rgba(142, 68, 173, 0.6);
+            }
+            button:active {
+                transform: scale(0.98);
+            }
+            table#anagrafe {
+                border-collapse: collapse;
+                width: 100%;
+                max-width: 900px;
+                margin: 20px auto 0 auto;
+                background-color: #ffffff;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                border-radius: 8px;
+                overflow: hidden;
+                border: 2px solid #6c5b7b !important;
+            }
+            table#anagrafe th, table#anagrafe td {
+                padding: 12px 15px;
+                text-align: left;
+                border: 1px solid #d1c7bd !important;
+            }
+            table#anagrafe th {
+                background-color: #4a3b5c;
+                color: #ffffff;
+                text-transform: uppercase;
+                font-size: 13px;
+                letter-spacing: 0.5px;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            function aggiungi(){
+                const nome=document.getElementById("nomeTab").value;
+                const cognome=document.getElementById("cognomeTab").value;
+                const indirizzo=document.getElementById("indirizzoTab").value;
+                const città=document.getElementById("cittàTab").value;
+                const età=document.getElementById("etàTab").value;
+                 const tabella = document.getElementById("anagrafe");
+                const riga = document.createElement("tr");
+                const tNome = document.createElement("td");
+                tNome.appendChild(document.createTextNode(nome));
+                riga.appendChild(tNome);
+                const tCognome = document.createElement("td");
+                tCognome.appendChild(document.createTextNode(cognome));
+                riga.appendChild(tCognome);
+                const tIndirizzo = document.createElement("td");
+                tIndirizzo.appendChild(document.createTextNode(indirizzo));
+                riga.appendChild(tIndirizzo);
+                const tCittà = document.createElement("td");
+                tCittà.appendChild(document.createTextNode(città));
+                riga.appendChild(tCittà);
+                const tEtà= document.createElement("td");
+                tEtà.appendChild(document.createTextNode(età));
+                riga.appendChild(tEtà);
+                tabella.appendChild(riga);
+                document.getElementById("nomeTab").value = "";
+                document.getElementById("cognomeTab").value = "";
+                document.getElementById("indirizzoTab").value = "";
+                document.getElementById("cittàTab").value = "";
+                document.getElementById("etàTab").value = "";
+            }
+        </script>
+        <h1>Tabella Anagrafica</h1>
+        <input type="text" id="nomeTab">
+        <input type="text" id="cognomeTab">
+        <input type="text" id="indirizzoTab">
+        <input type="text" id="cittàTab">
+        <input type="number" id="etàTab">
+        <button onclick="aggiungi()">Aggiungi</button>
+        <table id="anagrafe" border="1">
+        <tbody><tr>
+            <th><b>Nome</b></th>
+            <th><b>Cognome</b></th>
+            <th><b>Indirizzo</b></th>
+            <th><b>Città</b></th>
+            <th><b>Età</b></th>
+        </tr>
+        </tbody></table>
+</body></html>
